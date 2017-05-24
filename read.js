@@ -54,6 +54,9 @@ FileReadStream.prototype._read = function() {
     this.once('_ready', this._read.bind(this));
     return;
   }
+  if (!this.reader) {
+    return null;
+  }
   var readStream = this;
   var reader = this.reader;
 
